@@ -28,13 +28,13 @@ class VectorSprite
             //vector< Vector2 > d_pts = *points; This doesn't seem to reference the array referenced by points
             unsigned int i;
             double old_x, old_y;
-            for(i = 0; i < (*points).size(); i++)
+            for(i = 0; i < points->size(); i++)
             {
-                Vector2* v = &(*points).at(i);
-                old_x = (*v).x;
-                old_y = (*v).y;
-                (*v).x = (old_x * cos_a - old_y * sin_a);
-                (*v).y = (old_x * sin_a + old_y * cos_a);
+                Vector2* v = &points->at(i);
+                old_x = v->x;
+                old_y = v->y;
+                v->x = (old_x * cos_a - old_y * sin_a);
+                v->y = (old_x * sin_a + old_y * cos_a);
             }
         }
 };
