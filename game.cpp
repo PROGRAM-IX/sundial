@@ -110,8 +110,12 @@ int main ( int argc, char** argv )
             } // end switch
         } // end of message processing
 
-        // DRAWING STARTS HERE
+        // Use keyboard state to change game state
         
+        if (keys[SDLK_ESCAPE] == 1)
+        {
+            done = true;
+        }
         if (keys[SDLK_w] == 1)
         {
             vs.pos.y -= 10;
@@ -128,11 +132,8 @@ int main ( int argc, char** argv )
         {
             vs.pos.x += 10;
         }
-        if (keys[SDLK_ESCAPE] == 1)
-        {
-            done = true;
-        }
         
+        // DRAWING STARTS HERE
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glLoadIdentity();
         
@@ -142,7 +143,7 @@ int main ( int argc, char** argv )
             glColor3f(1, 0, 1); glVertex3f(100, 100, 0);
             glColor3f(1, 1, 1); glVertex3f(0, 100, 0);
         glEnd();*/
-        vs.rotate_radians(PI / 6.0);
+        vs.rotate_radians(PI / 60.0);
         Colour d_col = *vs.colour;
         vector< Vector2 > d_pts = *vs.points;
         unsigned int i;
